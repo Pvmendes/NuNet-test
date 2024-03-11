@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package deployer;
+
+// The deployment service definition.
+service DeployerService {
+  // Sends a deployment request to the server
+  rpc DeployContainer(DeployRequest) returns (DeployResponse);
+}
+
+// The request message containing the details of the deployment.
+message DeployRequest {
+  string imageName = 1;
+  repeated string args = 2;
+  map<string, string> envVars = 3;
+}
+
+// The response message containing the result of the deployment.
+message DeployResponse {
+  string status = 1;
+  string message = 2;
+}
