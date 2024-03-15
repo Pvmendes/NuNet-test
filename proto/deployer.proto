@@ -1,12 +1,7 @@
 syntax = "proto3";
+option go_package ="deployer/";
 
-package deployer;
-
-// The deployment service definition.
-service DeployerService {
-  // Sends a deployment request to the server
-  rpc DeployContainer(DeployRequest) returns (DeployResponse);
-}
+//protoc --proto_path=proto --go_out=proto --go_opt=paths=source_relative --go-grpc_out=proto --go-grpc_opt=paths=source_relative deployer.proto
 
 // The request message containing the details of the deployment.
 message DeployRequest {
@@ -19,4 +14,10 @@ message DeployRequest {
 message DeployResponse {
   string status = 1;
   string message = 2;
+}
+
+// The deployment service definition.
+service DeployerService {
+  // Sends a deployment request to the server
+  rpc DeployContainer(DeployRequest) returns (DeployResponse);
 }
