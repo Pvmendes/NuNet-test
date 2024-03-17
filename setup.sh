@@ -20,24 +20,17 @@ echo "Installing Go dependencies..."
 go mod tidy
 
 # Building the server on windows
+echo "Building the server binary..."
 cd ./cmd/server
-GOOS=windows GOARCH=amd64 go build -o server.exe
+GOOS=windows GOARCH=amd64 go build -o ../server.exe
 
 cd ..
 cd ..
 
 # Building the client on windows
+echo "Building the client binary..."
 cd ./cmd/client
-GOOS=windows GOARCH=amd64 go build -o client.exe
-
-
-# # Building the server
-# echo "Building the server binary..."
-# go build -o server ./cmd/server
-
-# # Building the client
-# echo "Building the client binary..."
-# go build -o client ./cmd/client
+GOOS=windows GOARCH=amd64 go build -o ../client.exe
 
 echo "Setup completed successfully."
 
