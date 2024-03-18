@@ -61,6 +61,8 @@ curl -X POST http://localhost:8080/deploy \
   "processPort":"50052"
 }'
 ```
+By including "processPort" in your JSON request, communication will be seamlessly facilitated via gRPC (Protobuf), ensuring efficient and structured data exchange.
+
 
 #### Expected Response
 Upon successful deployment, you should receive a response similar to the following:
